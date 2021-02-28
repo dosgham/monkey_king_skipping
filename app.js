@@ -8,7 +8,7 @@ const startover = document.getElementById('startover');
 var current = document.querySelector('.content.current');
 gas.style.visibility = 'hidden';
 gas2.style.visibility = 'hidden';
-
+startover.style.visibility = 'hidden';
 
 monkeyking.style.left = `${ current.offsetLeft-monkeyking.offsetWidth/2+current.offsetWidth/2}px`;
 
@@ -34,6 +34,12 @@ skipbutton.addEventListener('click',()=>{
             monkeyking.classList.remove('skipping');
             if(current.nextElementSibling.classList.contains('content')){
                 skipbutton.style.visibility = 'visible';
+            }else{
+                setTimeout(()=>{
+                    startover.style.visibility = 'visible';
+                },3000)
+                
+               
             }
             
             gas.classList.remove('skipping');
@@ -47,6 +53,7 @@ skipbutton.addEventListener('click',()=>{
 });
 
 startover.addEventListener('click',()=>{
+    startover.style.visibility = 'hidden';
     var width = current.offsetWidth;
     current.classList.remove('current');
     current = contents[0];
