@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+:root{
+    --skip-time:2s;
+}
+body{
+    height:100vh;
+    display:flex;
+    background-color:#bde0fe;
+    position:relative;
+
+}
+h1{
+    position:absolute;
+    font-family: 'Luckiest Guy', cursive;
+    color:#f08080;
+    letter-spacing:0.5em;
+    width:100%;
+    text-align:center;
+    
+}
+.content{
+    top:40%;
+    left:0%;
+    width:10%;
+    height:50%;
+    border-radius:20px;
+    background-color: #ffcad4;
+    position:relative;
+    margin-left:3vmin;
+    transition:var(--skip-time);
+    border:5vw solid #ffcad4;
+    box-sizing: border-box;
+    display:flex;
+    align-items: center;
+    text-align:center;
+    overflow:hidden;
+}
+.content.current{
+    width:50%;
+}
+.content span{
+    font-family: 'Gloria Hallelujah', cursive;
+    margin:auto auto;
+    opacity:0;
+    color:transparent;
+    transition:opacity 1s var(--skip-time) ,color 1s;
+    font-size:2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position:relative;
+    height:100%;
+    width:100%;
+    
+}
+.content.current span{
+   opacity:1;
+   color:#3a78fc;
+}
+.monkey-king{
+    top:0%;
+    left:0%;
+    width:30vh;
+    height:40vh;
+    position:absolute;
+    transform:translateY(0vmin);
+    transform-origin:bottom;
+    animation:monkey-king-jump 3s linear infinite ;
+    transition-duration:var(--skip-time);
+}
+.monkey-king.skipping{
+    animation:monkey-king-skip var(--skip-time) linear 1;
+    animation-fill-mode:forwards;
+}
+
+#mk.skipping{
+    transform-origin: 50% 30%;
+    transform-box: fill-box;
+    animation: mk-skip 1s linear ;
+}  
+
+#mk.skipping2{
+    transform-origin: 50% 30%;
+    transform-box: fill-box;
+    animation: mk-skip2 1s linear ;
+}  
+
+#arm_bar{
+    transform:rotate(0deg);
+    transform-box: fill-box;
+    transform-origin:center;
+    animation:bar_rotate 3s linear infinite;
+}
+#left_arm{
+    transform:rotate(0deg);
+    transform-box: fill-box;
+    transform-origin:100% 100%;
+    animation:arm_rotate 3s linear infinite;
+}
+#gas.skipping{
+    transform-origin: center;
+    transform-box: fill-box;
+    transform: scale(2);
+    animation:gas-skipping 1s linear infinite;
+}
+#gas2.skipping{
+    transform-origin: 100% 100%;
+    transform-box: fill-box;
+    transform: scale(2);
+    animation:gas-skipping 1s linear infinite;
+}
+#startover{
+    outline:none;
+    border-radius:5px;
+    border:none;
+    display:block;
+    width:60%;
+    height:20%;
+    padding:2em;
+    position:relative;
+    margin-top:auto;
+    text-align: center;
+    background-color:#3a78fc;
+  
+}
+#startover span{
+    
+    color:#ffafcc;
+}
+#startover:hover{
+    transform:scale(0.98);
+}  
+#skipbutton:hover ~ g#mk #right_ear{
+    transform-origin: center;
+    transform-box: fill-box;
+    transform: scale(1.5);
+}
+#skipbutton:hover ~ g#mk #left_ear{
+    transform-origin: center;
+    transform-box: fill-box;
+    transform: scale(1.5);
+}
+#skipbutton:hover {
+    transform-origin: center;
+    transform-box: fill-box;
+    transform: scale(1.2);
+}
+
+
+@keyframes gas-skipping{
+    0%{
+        transform: translateX(0) scale(3);
+        
+    }
+    50%{
+        transform: translateX(-5vmin) scale(1.5);
+    }
+    100%{
+        transform: translateX(-8vmin) scale(0.5);
+    }
+}
+@keyframes bar_rotate{
+    0%{
+        transform:rotate(0deg);
+    }
+    25%{
+        transform:rotate(10deg);
+    }
+    50%{
+        transform:rotate(0deg);
+    }
+    75%{
+        transform:rotate(-10deg);
+    }
+    100%{
+        transform:rotate(0deg);
+    }
+}
+@keyframes arm_rotate{
+    0%{
+        transform:rotate(0deg);
+    }
+    25%{
+        transform:rotate(10deg);
+    }
+    50%{
+        transform:rotate(0deg);
+    }
+    75%{
+        transform:rotate(-10deg);
+    }
+    100%{
+        transform:rotate(0deg);
+    }
+}
+@keyframes monkey-king-jump{
+    0%{
+        transform:translateY(0vmin);
+    }
+    50%{
+        transform:translateY(-1vmin);
+    }
+    100%{
+        transform:translateY(0vmin);
+    }
+}
+@keyframes monkey-king-skip{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform:translateY(-5vmin);
+    }
+    100%{
+        transform: translateY(0vmin);
+    }
+}
+
+@keyframes mk-skip2{
+    0%{
+        transform:rotateZ(0deg);
+    }
+    50%{
+        transform:rotateZ(-180deg);
+    }
+    100%{
+        transform:rotateZ(-360deg);
+    }
+}
+
+
+@keyframes mk-skip{
+    0%{
+        transform:rotateZ(0deg);
+    }
+    50%{
+        transform:rotateZ(180deg);
+    }
+    100%{
+        transform:rotateZ(360deg);
+    }
+}
